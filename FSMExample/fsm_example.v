@@ -4,7 +4,7 @@
 // Design Name : fsm_example
 // File Name   : fsm_example.v
 //-----------------------------------------------------
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 // comment out next line to remove debug print outs when
 // running test bench
 `define DEBUG_PRINTOUTS_ENABLED;
