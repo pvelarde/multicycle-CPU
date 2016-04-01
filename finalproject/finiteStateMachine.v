@@ -211,217 +211,218 @@ endfunction
 
 
 always @ (current_state or reset)
-begin : OUTPUT_LOGIC
-    if (reset == 1`b1) begin
-        O_PC_WRITE: 1;
-        O_BRANCH: 0;
-        O_ALU_SRC_A: 0;
-        O_REG_FILE_ENABLE: 0;
-        O_INSTRUCTION_OR_DATA: 0;
-        O_MEM_ENABLE: 0;
-        O_REG_DEST: 0;
-        O_MEM_TO_REG: 0;
-        O_PC_SRC: 0;
-        O_ALU_SRC_B: 1; //adding 4 to PC
-        O_ALU_CONTROL: ALU_ADD;
-        O_IR_WRITE: 1;
+begin // OUTPUT_LOGIC
+    if (reset == 1'b1)
+     begin
+        O_PC_WRITE = 1;
+        O_BRANCH = 0;
+        O_ALU_SRC_A = 0;
+        O_REG_FILE_ENABLE = 0;
+        O_INSTRUCTION_OR_DATA = 0;
+        O_MEM_ENABLE = 0;
+        O_REG_DEST = 0;
+        O_MEM_TO_REG = 0;
+        O_PC_SRC = 0;
+        O_ALU_SRC_B = 1; //adding 4 to PC
+        O_ALU_CONTROL = ALU_ADD;
+        O_IR_WRITE = 1;
     end
     else begin
         case(current_state)
             S_FETCH:
                 begin
-                    O_PC_WRITE: 1;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 1;
-                    O_ALU_CONTROL: ALU_ADD;
-                    O_IR_WRITE: 1;
+                    O_PC_WRITE  = 1;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 1;
+                    O_ALU_CONTROL = ALU_ADD;
+                    O_IR_WRITE = 1;
                 end
             S_DECODE:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 3;
-                    O_ALU_CONTROL: ALU_ADD;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 3;
+                    O_ALU_CONTROL = ALU_ADD;
+                    O_IR_WRITE = 0;
                 end
             S_MEM_ADR:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 1;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 2;
-                    O_ALU_CONTROL: ALU_ADD;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 1;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 2;
+                    O_ALU_CONTROL = ALU_ADD;
+                    O_IR_WRITE = 0;
                 end
             S_MEM_READ:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 1;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: 0;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 1;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = 0;
+                    O_IR_WRITE = 0;
                 end
             S_MEM_WRITEBACK:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 1;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 1;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: ALU_ADD;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 1;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 1;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = ALU_ADD;
+                    O_IR_WRITE = 0;
                 end
             S_MEM_WRITE:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 1;
-                    O_MEM_ENABLE: 1;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: 0;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 1;
+                    O_MEM_ENABLE = 1;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = 0;
+                    O_IR_WRITE = 0;
                 end
             S_EXECUTE:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 1;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: opcode[3:0];
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 1;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = opcode[3:0];
+                    O_IR_WRITE = 0;
                 end
             S_ALU_WRITEBACK:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 1;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 1;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: 0;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 1;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 1;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = 0;
+                    O_IR_WRITE = 0;
                 end
             S_BRANCH:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 1;
-                    O_ALU_SRC_A: 1;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 1;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: ALU_SUB;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 1;
+                    O_ALU_SRC_A = 1;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 1;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = ALU_SUB;
+                    O_IR_WRITE = 0;
                 end
             S_ADDI_EXECUTE:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 1;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 2;
-                    O_ALU_CONTROL: ADD_SUB;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 1;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 2;
+                    O_ALU_CONTROL = ADD_SUB;
+                    O_IR_WRITE = 0;
                 end
             S_ADDI_WRITEBACK:
                 begin
-                    O_PC_WRITE: 0;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 1;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: 0;
-                    O_IR_WRITE: 0;
-                end
+                    O_PC_WRITE = 0;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 1;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = 0;
+                    O_IR_WRITE = 0;
+                case
             S_JUMP:
                 begin
-                    O_PC_WRITE: 1;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 2;
-                    O_ALU_SRC_B: 0;
-                    O_ALU_CONTROL: 0;
-                    O_IR_WRITE: 0;
+                    O_PC_WRITE = 1;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 2;
+                    O_ALU_SRC_B = 0;
+                    O_ALU_CONTROL = 0;
+                    O_IR_WRITE = 0;
                 end
             default:
                 begin
-                    O_PC_WRITE: 1;
-                    O_BRANCH: 0;
-                    O_ALU_SRC_A: 0;
-                    O_REG_FILE_ENABLE: 0;
-                    O_INSTRUCTION_OR_DATA: 0;
-                    O_MEM_ENABLE: 0;
-                    O_REG_DEST: 0;
-                    O_MEM_TO_REG: 0;
-                    O_PC_SRC: 0;
-                    O_ALU_SRC_B: 1;
-                    O_ALU_CONTROL: ALU_ADD;
-                    O_IR_WRITE: 1;
+                    O_PC_WRITE = 1;
+                    O_BRANCH = 0;
+                    O_ALU_SRC_A = 0;
+                    O_REG_FILE_ENABLE = 0;
+                    O_INSTRUCTION_OR_DATA = 0;
+                    O_MEM_ENABLE = 0;
+                    O_REG_DEST = 0;
+                    O_MEM_TO_REG = 0;
+                    O_PC_SRC = 0;
+                    O_ALU_SRC_B = 1;
+                    O_ALU_CONTROL = ALU_ADD;
+                    O_IR_WRITE = 1;
                 end
         endcase
     end
@@ -429,10 +430,12 @@ end
 
 // ================= Sequential Logic =================
 always @ (posedge clk)
-begin: FSM_SEQ
+begin
     if (reset == 1) begin
-        current_state <= S_FETCH
-    end else begin
+        current_state <= S_FETCH;
+    end
+     else
+     begin
         current_state <= next_state;
     end
 end
