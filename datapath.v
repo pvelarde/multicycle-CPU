@@ -1,60 +1,52 @@
-`timescale 1ns / 1ps
+module Datapath();
 
-module datapath();
-
-parameter w = 32;
-
-//INPUTS and OUTPUTS
-input clk,reset;
-input [31:0] instruction;
-input pc_write, ir_write, branch, alu_src_a, reg_file_enable, mem_to_reg, reg_dst, instr_mem_enable, data_mem_enable;
-input [1:0] pc_source,alu_src_b;
-input [2:0] alu_control;
-output [31:0] alu_result;
+// INPUTS
+input Clock, PC_write, Branch, PC_src, Reg_write, Mem_to_reg, Reg_dst, IorD, Mem_write, IR_write;
+input ALU_src_a;
+input [1:0] ALU_src_b;
+input [2:0] ALU_control;
 
 // WIRES
-wire [31:0] pc_to_instruction_memory;
-wire pc_enable;
-wire [31:0] instruction_to_IR;
-wire [31:0] IR_output;
-
-// Fetch instruction
-
-nbit_reg #.DATA_WIDTH(w) pc_reg(
-    .nD(instruction),
-    .nQ(pc_to_instruction_memory),
-    .Write(pc_enable),
-    .Reset(reset),
-    .Clk(clk)
-    );
-
-I_Memory IMem(
-    .PC(pc_to_instruction_memory),
-    .Instruction(instruction_to_IR));
-
-nbit_reg #.DATA_WIDTH(w) instruction_reg(
-    .nD(instruction_to_IR),
-    .nQ(IR_output),
-    .Write(ir_write),
-    .Reset(reset),
-    .Clk(clk)
-    );
-
-// write data MUX
-nbit_mux #.SELECT_WIDTH(1) mux_write_to_register_file (
-    .MuxIn,   // Mux input: 2^SELECT_WID TH bits.
-    .MuxOut,  // Mux output: 1 bit.
-    .MuxSel); // Mux select lines: SELECT_WIDTH bits.
-
-nbit_register_file #.w(w) register_file(
-    .write_data(,
-    .read_data_1,
-    .read_data_2,
-    .read_sel_1,
-    .read_sel_2,
-    .write_address,
-    .RegWrite(reg_file_enable),
-    .clk(clk));
+wire branch_and_out, ALU_zero, PC_enable;
+wire [15:0] next_pc_to_pc_reg, pc_reg_output;
+wire [31:0] instruction_out, instruction_reg_out;
+// instruction register wires
+wire [15:0] immediate;
+wire [4:0] wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file;
+wire [5:0] op_out; // op_out to the control
+// register file wires
+wire [31:0] mux_write_data; // input to register file
+wire [31:0] wire_to_register_a, wire_to_register_b; // outputs from register file
 
 
-endmodule
+and branch_and_gate(branch_and_out, ALU_zero, Branch);
+or branch_or_gate(PC_enable, branch_and_out, PC_write);
+
+/*
+module nbit_reg(
+nD,    // Register Input
+nQ,    // Register Output
+Write, // Only accept input when this is set
+Reset, // Synchronous Reset
+Clk);  // Clock
+*/
+
+//PC register
+nbit_register #(16) reg_pc(next_pc_to_pc_reg, pc_reg_output, PC_enable, Reset, Clock);
+
+// Instruction Memory
+IMem instruction_memory(pc_reg_output, instruction_out);
+
+// Instruction register
+instruction_register instruction_register(op_out, wire_reg_file_in_a, wire_reg_file_in_b, immediate, IR_write, instruction_out, Clock, Reset);
+
+// Register file
+nbit_register #(32) reg_register_file_a (reg_file_out_a, wire_to_register_a, 1, Reset, Clock);
+nbit_register #(32) reg_register_file_b (reg_file_out_a, wire_to_register_a, 1, Reset, Clock);
+
+nbit_register_file #(32) register_file(mux_write_data, wire_to_register_a, wire_to_register_b, wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file, Reg_write, Clock);
+
+
+
+
+
