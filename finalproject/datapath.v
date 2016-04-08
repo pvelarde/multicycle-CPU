@@ -1,3 +1,5 @@
+`timescale 1ns / 1ns
+
 module Datapath(ALU_output,Clock, Reset, PC_write, Branch, PC_src, Reg_write, Mem_to_reg, Reg_dst, IorD, Mem_write, IR_write,ALU_src_a, ALU_src_b,ALU_control );
 
 // INPUTS
@@ -25,7 +27,7 @@ wire [31:0] alu_src_a, alu_src_b;
 	//alu output wires
 wire [31:0] alu_result,alu_reg_out;
 //data memory wires
-wire [31:0] data_mem_out, to_reg_file_data_mux
+wire [31:0] data_mem_out, to_reg_file_data_mux;
 //sign extend wires
 wire [31:0] zero_extended_immediate;
 wire [31:0] sign_extended_immediate;
@@ -66,7 +68,7 @@ nbit_register_file #(32) register_file(mux_write_data, wire_to_register_a, wire_
 
 // data memory
 DMem data_memory (wire_to_register_b, data_mem_out, alu_reg_out, Mem_write, Clock);
-nbit_register #(32) data_mem_out (data_mem_out, to_reg_file_data_mux, 1, Reset, Clock);
+nbit_register #(32) data_memory_out (data_mem_out, to_reg_file_data_mux, 1, Reset, Clock);
 
 //alu in muxes
 assign alu_src_a = ALU_src_a? pc_reg_output : wire_to_register_a;
@@ -81,6 +83,7 @@ assign ALU_output = alu_result;
 //alu out register
 nbit_register #(32) reg_alu_out (alu_result, alu_reg_out, 1, Reset, Clock);
 
+endmodule
 
 
 

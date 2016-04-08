@@ -1,4 +1,4 @@
-=
+
 // This can be used to replace the original nbit_register_file in lab6.
 // In iSim you can actually expand this reg_file to view the contents in it. 
 

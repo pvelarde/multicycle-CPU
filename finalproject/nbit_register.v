@@ -1,6 +1,6 @@
 //n bit register
 
-module nbit_reg(nD,    // Register Input
+module nbit_register(nD,    // Register Input
                 nQ,    // Register Output
                      Write, // Only accept input when this is set
                      Reset, // Synchronous Reset
