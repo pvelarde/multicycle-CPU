@@ -1,22 +1,46 @@
-Running: /mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/fsm_example_test_isim_beh.exe -prj /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/fsm_example_test_beh.prj work.fsm_example_test work.glbl 
+Running: /mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/test_datapath_isim_beh.exe" -prj "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/test_datapath_beh.prj" "work.test_datapath" "work.glbl" 
 ISim P.28xd (signature 0x54af6ca1)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/../FSMExample/fsm_example.v" into library work
-Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/../FSMExample/fsm_example_test.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/DFF.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/nbit_register_file.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/nbit_register.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/instruction_register.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/IMem.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/DMem.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/alu.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" into library work
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 56: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 57: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/test_datapath.v" into library work
 Analyzing Verilog file "/mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 56: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 57: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 64: Size mismatch in connection of port <nD>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 65: Size mismatch in connection of port <nD>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 70: Size mismatch in connection of port <Address>. Formal port size is 16-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 71: Size mismatch in connection of port <Write>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 84: Size mismatch in connection of port <Write>. Formal port size is 1-bit while actual signal size is 32-bit.
 Completed static elaboration
-Fuse Memory Usage: 93920 KB
-Fuse CPU Usage: 920 ms
-Compiling module fsm_example
-Compiling module fsm_example_test
+Fuse Memory Usage: 94016 KB
+Fuse CPU Usage: 1040 ms
+Compiling module DFF
+Compiling module nbit_register(DATA_WIDTH=16)
+Compiling module IMem
+Compiling module instruction_register
+Compiling module nbit_register_default
+Compiling module nbit_register_file
+Compiling module DMem
+Compiling module alu
+Compiling module Datapath
+Compiling module test_datapath
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 3 Verilog Units
-Built simulation executable /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/fsm_example_test_isim_beh.exe
-Fuse Memory Usage: 652096 KB
-Fuse CPU Usage: 930 ms
-GCC CPU Usage: 250 ms
+Compiled 11 Verilog Units
+Built simulation executable /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/test_datapath_isim_beh.exe
+Fuse Memory Usage: 652276 KB
+Fuse CPU Usage: 1060 ms
+GCC CPU Usage: 280 ms

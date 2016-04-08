@@ -13,7 +13,7 @@ output [31:0] ALU_output;
 wire branch_and_out, ALU_zero, PC_enable;
 wire [31:0] next_pc_to_pc_reg;
 wire [15:0] pc_reg_output;
-wire [31:0] instruction_out, instruction_reg_out;
+wire [31:0] instruction_out;
 // instruction register wires
 wire [15:0] immediate;
 wire [4:0] wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file;
@@ -44,7 +44,7 @@ Clk);  // Clock
 */
 
 //PC register
-nbit_register #(16) reg_pc(next_pc_to_pc_reg[15:0], pc_reg_output, PC_enable, Reset, Clock);
+nbit_register #(.DATA_WIDTH(16)) reg_pc(next_pc_to_pc_reg[15:0], pc_reg_output, PC_enable, Reset, Clock);
 
 // Instruction Memory
 IMem instruction_memory(pc_reg_output, instruction_out);
@@ -61,14 +61,14 @@ assign write_to_reg_file = Reg_dst? immediate[15:11] : wire_reg_file_in_b; // mu
 assign mux_write_data = Mem_to_reg? to_reg_file_data_mux : alu_reg_out;
 
 // Register file
-nbit_register #(32) reg_register_file_a (reg_file_out_a, wire_to_register_a, 1, Reset, Clock);
-nbit_register #(32) reg_register_file_b (reg_file_out_b, wire_to_register_b, 1, Reset, Clock);
+nbit_register #(.DATA_WIDTH(32)) reg_register_file_a (reg_file_out_a, wire_to_register_a, 1, Reset, Clock);
+nbit_register #(.DATA_WIDTH(32)) reg_register_file_b (reg_file_out_b, wire_to_register_b, 1, Reset, Clock);
 
-nbit_register_file #(32) register_file(mux_write_data, wire_to_register_a, wire_to_register_b, wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file, Reg_write, Clock);
+nbit_register_file #(.data_width(32)) register_file(mux_write_data, wire_to_register_a, wire_to_register_b, wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file, Reg_write, Clock);
 
 // data memory
 DMem data_memory (wire_to_register_b, data_mem_out, alu_reg_out, Mem_write, Clock);
-nbit_register #(32) data_memory_out (data_mem_out, to_reg_file_data_mux, 1, Reset, Clock);
+nbit_register #(.DATA_WIDTH(32)) data_memory_out (data_mem_out, to_reg_file_data_mux, 1, Reset, Clock);
 
 //alu in muxes
 assign alu_src_a = ALU_src_a? pc_reg_output : wire_to_register_a;
@@ -81,7 +81,7 @@ assign next_pc_to_pc_reg = PC_src? alu_reg_out : alu_result;
 assign ALU_output = alu_result;
 
 //alu out register
-nbit_register #(32) reg_alu_out (alu_result, alu_reg_out, 1, Reset, Clock);
+nbit_register #(.DATA_WIDTH(32)) reg_alu_out (alu_result, alu_reg_out, 1, Reset, Clock);
 
 endmodule
 

@@ -24,7 +24,6 @@
 
 module IMem(PC,          // PC (address) of instruction in IMem
             Instruction);
-
 `ifdef PROGRAM_1
 	parameter PROG_LENGTH= 22;
 `else
@@ -62,8 +61,13 @@ case(PC)
 	// Add $R0 and $R2 and get an answer in $R3: 
 	// -1 + 2 = 1
 	//
-
-	// LI   $R0, 0xFFFF
+	
+	// LI   $R1, 
+	0: Instruction=  32'b111001_00001_00001_0000000000000111;
+	// ADD   $R0, $R1, $R2 //adds zeros
+	//1: Instruction=  32'b010010_00001_00010_0000000000000000;
+	// LUI  $R0, 0xFFFF
+	/*
 	0: Instruction=  32'b111001_00000_00000_1111111111111111;
 	// LUI  $R0, 0xFFFF
 	1: Instruction=  32'b111010_00000_00000_1111111111111111;
@@ -129,6 +133,7 @@ case(PC)
 	21: Instruction= 32'b110010_11010_11010_0000000000000111;
 	// NOOP
 	22: Instruction= 32'b000000_00000_00000_0000000000000000;
+	*/
 `else
 //-----------------------------------------------------
 `ifdef PROGRAM_2

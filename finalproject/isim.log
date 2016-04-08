@@ -1,73 +1,41 @@
 ISim log file
-Running: /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/fsm_example_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/pvelarde/Desktop/final project/finalproject/fsm_example_test_isim_beh.wdb 
+Running: /ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/test_datapath_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/pvelarde/Desktop/final project/finalproject/test_datapath_isim_beh.wdb 
 ISim P.28xd (signature 0x54af6ca1)
 This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 64.  For instance uut/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING:  For instance uut/reg_register_file_a/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 65.  For instance uut/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING:  For instance uut/reg_register_file_b/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 28.  For instance uut/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance uut/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
-time	clk	reset		input_signal		output_signal
 Finished circuit initialization process.
-0	0	1		000		100000
-Current state: S_IDLE
-25	1	1		000		100000
-50	0	0		000		100000
-Current state: S_IDLE
-75	1	0		000		100000
-100	0	0		000		100000
-Current state: S_IDLE
-125	1	0		000		100000
-150	0	0		001		100000
-Current State: S_NAP
-175	1	0		001		100001
-200	0	0		001		100001
-Current State: S_NAP
-225	1	0		001		100001
-250	0	0		001		100001
-Current State: S_NAP
-275	1	0		001		100001
-300	0	0		001		100001
-Current State: S_NAP
-325	1	0		001		100001
-350	0	0		100		100001
-Current State: S_WAKEUP
-375	1	0		100		100010
-400	0	0		100		100010
-Current State: S_ATTENDCLASS
-425	1	0		100		100011
-450	0	0		100		100011
-Current State: S_ATTENDCLASS
-475	1	0		100		100011
-500	0	0		100		100011
-Current State: S_ATTENDCLASS
-525	1	0		100		100011
-550	0	0		011		100011
-Current State: S_HIBERNATE
-575	1	0		011		100001
-600	0	0		011		100001
-Current State: S_HIBERNATE
-625	1	0		011		100001
-650	0	0		011		100001
-Current State: S_HIBERNATE
-675	1	0		011		100001
-700	0	0		100		100001
-Current State: S_HIBERNATE
-725	1	0		100		100001
-750	0	0		100		100001
-Current State: S_HIBERNATE
-775	1	0		100		100001
-800	0	0		100		100001
-Current State: S_HIBERNATE
-825	1	0		100		100001
-850	0	0		100		100001
-Current State: S_HIBERNATE
-875	1	0		100		100001
-900	0	0		111		100001
-Current State: S_WAKEUP
-925	1	0		111		100010
-950	0	0		111		100010
-Current state: S_IDLE
-975	1	0		111		100000
-1000	0	0		111		100000
-# exit 0
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 64.  For instance uut/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING:  For instance uut/reg_register_file_a/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 65.  For instance uut/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING:  For instance uut/reg_register_file_b/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 28.  For instance uut/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance uut/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 64.  For instance uut/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING:  For instance uut/reg_register_file_a/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 65.  For instance uut/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING:  For instance uut/reg_register_file_b/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final project/finalproject/datapath.v" Line 28.  For instance uut/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance uut/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
