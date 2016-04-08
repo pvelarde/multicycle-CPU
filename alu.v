@@ -18,11 +18,13 @@
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu(out, a, b, op_code);
+module alu(out, zero, a, b, op_code);
     input [31:0] a,b;
     input [2:0] op_code;
     output reg [31:0] out;
+    output zero;
 
+    assign zero = ( a - b == 0 )? 1: 0;
     always @ (a,b,op_code)
         begin
             case(op_code)
