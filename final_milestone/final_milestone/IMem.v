@@ -12,7 +12,7 @@
 // Which test program to use:
 // - PROGRAM_1: first simple example.
 //
-// - PROGRAM_2: test remaining instructions 
+// - PROGRAM_2: test remaining instructions
 //              and corner cases.
 // - PROGRAM_3: optional LW/SW program.
 //
@@ -53,16 +53,16 @@ case(PC)
 	//
 
 	//
-	// 1.1) First part: 
+	// 1.1) First part:
 	// Load values into:
 	// $R0 = -1
 	// $R1 = 0
 	// $R2 = 2
-	// Add $R0 and $R2 and get an answer in $R3: 
+	// Add $R0 and $R2 and get an answer in $R3:
 	// -1 + 2 = 1
 	//
-	
-	// LI   $R1, 
+
+	// LI   $R1,
 	0: Instruction=  32'b111001_00001_00001_0000000000000111;
 	// ADD   $R0, $R1, $R2 //adds zeros
 	//1: Instruction=  32'b010010_00001_00010_0000000000000000;
@@ -84,8 +84,8 @@ case(PC)
 
 	//
 	// 1.2) Second part: store and load, should store $R3
-	// (contains 1) into address 5.  Then load from 
-	// address 5 into register $R1.  $R1 should then 
+	// (contains 1) into address 5.  Then load from
+	// address 5 into register $R1.  $R1 should then
 	// contain 1.
 	//
 
@@ -117,7 +117,7 @@ case(PC)
 	// BLT 	$R24, $R23, 0xFFFE
 	15: Instruction= 32'b100010_11000_10111_1111111111111110;
 
-	
+
 	// ADDI $R25, $R25, 0x0001
 	16: Instruction= 32'b110010_11001_11001_0000000000000001;
 	// BLE 	$R25, $R23, 0xFFFE
@@ -141,13 +141,13 @@ case(PC)
 
 	//
 	// PROGRAM_2:
-	// Test all R-type and logical/arithmetic I-type instructions, 
+	// Test all R-type and logical/arithmetic I-type instructions,
 	// also test remaining untested instructions and additional
 	// corner cases.
 	//
 
 	//
-	// 2.1) First part: 
+	// 2.1) First part:
 	// Load values into:
 	// $R0 = -2    (0xFFFFFFFE)
 	// $R1 = 65537 (0x00010001)
@@ -166,12 +166,12 @@ case(PC)
 	4: Instruction=  32'b111001_00010_00000_0000000000000001;
 	// LUI  $R2, 0x0000
 	5: Instruction=  32'b111010_00010_00000_0000000000000000;
-	
+
 	//
-	// 2.2) Second part: 
+	// 2.2) Second part:
 	// Run through all R-Type instructions
 	//
-	
+
 	// MOV  $R3, $R2: ALUOutput = 1
 	6: Instruction=  32'b010000_00011_00010_00000_00000000000;
 	// NOT  $R4, $R2: ALUOutput = (~0x00000001) = 0xFFFFFFFE
@@ -188,12 +188,12 @@ case(PC)
 	12: Instruction= 32'b010110_01001_00001_00000_00000000000;
 	// SLT  $R10, $R1, $R0: ALUOutput = (0x00010001 < -2) = 0
 	13: Instruction= 32'b010111_01010_00001_00000_00000000000;
-	
+
 	//
-	// 2.3) Third part: 
+	// 2.3) Third part:
 	// Run through all Logical/Arithmetic I-Type instructions
 	//
-	
+
 	// ADDI  $R12, $R2, 5: ALUOutput = 1 + 5 = 6
 	14: Instruction= 32'b110010_01100_00010_0000000000000101;
 	// SUBI  $R13, $R2, 5: ALUOutput = 1 - 5 = -4
@@ -208,10 +208,10 @@ case(PC)
 	19: Instruction= 32'b110111_10001_00010_0000000000000101;
 
 	//
-	// 2.4) Fourth part: 
+	// 2.4) Fourth part:
 	// LWI and SWI, test corner cases
 	//
-	
+
 	// SWI  $R3, [0x0000] (store 1 at address 0)
 	20: Instruction= 32'b111100_00011_00000_0000000000000000;
 	// SWI  $R4, [0x0000] (overwrite value of 1 with 0xFFFFFFFE at address 0)
@@ -227,7 +227,7 @@ case(PC)
 	// ADDI  $R19, $R19, 1: ALUOutput = 0x00000000
 	26: Instruction= 32'b110010_10011_10011_0000000000000001;
 
-	
+
 `else
 //-----------------------------------------------------
 `ifdef PROGRAM_3
@@ -236,7 +236,7 @@ case(PC)
    // Simple LW and SW test.
 
 	//
-	// 3.1) First part: 
+	// 3.1) First part:
 	// Load values into:
 	// $R0 = 0    (0x00000000)
 	// $R1 = 10   (0x0000000A)
@@ -252,7 +252,7 @@ case(PC)
 	3: Instruction=  32'b111010_00001_00000_0000000000000000;
 
 	//
-	// 3.2) Second part: 
+	// 3.2) Second part:
 	// Loop with SW test.
 	// Stores the following:
 	//
@@ -262,20 +262,20 @@ case(PC)
 	// Address 9:  8
 	// Address 10: 9
 	//
-	
+
 	// SW  $R0, $R0[0x1]
 	4: Instruction=  32'b111110_00000_00000_0000000000000001;
 	// ADDI $R0, $R0, 0x0001
 	5: Instruction=  32'b110010_00000_00000_0000000000000001;
 	// BLT	$R0, $R1, 0xFFFD
 	6: Instruction=  32'b100010_00000_00001_1111111111111101;
-	
+
 	//
-	// 3.3) Third part: 
+	// 3.3) Third part:
 	// Loop with LW test.
 	// Should output out of the ALU on instruction 11: 1, 2, ..., 10
 	//
-	
+
 	// LI   $R0, 0x0000
 	7: Instruction=  32'b111001_00000_00000_0000000000000000;
 	// LUI  $R0, 0x0000
@@ -297,4 +297,4 @@ endcase
 end
 
 endmodule
-	
+

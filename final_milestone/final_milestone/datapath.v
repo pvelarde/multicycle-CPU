@@ -1,6 +1,6 @@
 `timescale 1ns / 1ns
 
-module Datapath(ALU_output,Clock, Reset, PC_write, Branch, PC_src, Reg_write, Mem_to_reg, Reg_dst, IorD, Mem_write, IR_write,ALU_src_a, ALU_src_b,ALU_control );
+module Datapath(ALU_output, opcode ,Clock, Reset, PC_write, Branch, PC_src, Reg_write, Mem_to_reg, Reg_dst, IorD, Mem_write, IR_write,ALU_src_a, ALU_src_b,ALU_control );
 
 // INPUTS
 input Clock, Reset, PC_write, Branch, PC_src, Reg_write, Mem_to_reg, Reg_dst, IorD, Mem_write, IR_write;
@@ -8,6 +8,7 @@ input ALU_src_a;
 input [1:0] ALU_src_b;
 input [2:0] ALU_control;
 output [31:0] ALU_output;
+output [5:0] opcode;
 
 // WIRES
 wire branch_and_out, ALU_zero, PC_enable;
@@ -17,7 +18,6 @@ wire [31:0] instruction_out;
 // instruction register wires
 wire [15:0] immediate;
 wire [4:0] wire_reg_file_in_a, wire_reg_file_in_b, write_to_reg_file;
-wire [5:0] op_out; // op_out to the control
 // register file wires
 wire [31:0] mux_write_data; // input to register file
 wire [31:0] wire_to_register_a, wire_to_register_b; // outputs from register file
@@ -50,7 +50,7 @@ nbit_register #(.DATA_WIDTH(16)) reg_pc(next_pc_to_pc_reg[15:0], pc_reg_output, 
 IMem instruction_memory(pc_reg_output, instruction_out);
 
 // Instruction register
-instruction_register instruction_register1(op_out, wire_reg_file_in_a, wire_reg_file_in_b, immediate, IR_write, instruction_out, Clock, Reset);
+instruction_register instruction_register1(opcode, wire_reg_file_in_a, wire_reg_file_in_b, immediate, IR_write, instruction_out, Clock, Reset);
 
 // sign extend immediate
 assign zero_extended_immediate = {{16{0}}, immediate};
@@ -72,9 +72,9 @@ nbit_register #(.DATA_WIDTH(32)) data_memory_out (data_mem_out, to_reg_file_data
 
 //alu in muxes
 assign alu_src_a = ALU_src_a? pc_reg_output : wire_to_register_a;
-assign alu_src_b = (ALU_src_b == 0)? wire_to_register_b : (ALU_src_b == 1)? 1 : (ALU_src_b == 2)? sign_extended_immediate: zero_extended_immediate; 
+assign alu_src_b = (ALU_src_b == 0)? wire_to_register_b : (ALU_src_b == 1)? 1 : (ALU_src_b == 2)? sign_extended_immediate: zero_extended_immediate;
 
-// alu 
+// alu
 alu ALU (alu_result, ALU_zero, alu_src_a, alu_src_b, ALU_control);
 
 assign next_pc_to_pc_reg = PC_src? alu_reg_out : alu_result;
