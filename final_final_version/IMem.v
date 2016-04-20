@@ -61,20 +61,55 @@ case(PC)
 	// Add $R0 and $R2 and get an answer in $R3:
 	// -1 + 2 = 1
 	//
-
+	
 	// LI   $R1, 7
 	0: Instruction=  32'b111001_00001_00001_0000000000000111;
 	// ADD   $R0, $R1, $R2 //adds zeros
 	1: Instruction=  32'b010010_00001_00001_0000000000000000;
 	// ADDI  $R2, $R1, 0x0F0F
 	2: Instruction=  32'b110010_00001_00010_0000111100001111;
+	// sw
 	3: Instruction=  32'b111100_00010_00010_0000000000000100;
+	// lw
 	4: Instruction=  32'b111011_00011_00011_0000000000000100;
-	// Branch comparing $R1 and $R2 
-	//2: Instruction=  32'b100001_00001_00010_0000000000000001;
+	// Mov $R1 -> $R3 (value = 7 into $R3) 
+	5: Instruction=  32'b010000_00011_00001_0000000000000000;
+	// Not sets all bits to {{29'1},3'b000} only effecting $R0
+	6: Instruction=  32'b010001_00011_00011_00101_00000000010;
+	// OrI sets all bits to 0 
+	7: Instruction=  32'b110100_00001_00001_0000000000000111;
+	// AndI sets it back to 2 WORKS
+	8: Instruction=  32'b110101_00001_00001_0000000000000010;
+		// Branch comparing $R1 and $R2 
+	9: Instruction=  32'b100001_00001_00001_0000000000000001;
 	// J to 0
-	//3: Instruction=  32'b000001_00000_00000_0000000000000000;
+	10: Instruction=  32'b000001_00000_00000_0000000000000010;
 	
+	// Sub
+	// Or
+	// And
+	// Xor
+	// SLT
+	// SubI
+	// OrI
+	// AndI
+	// XorI
+	// SLTI
+	// Noop
+	// Mov
+	// Not
+	// Sub
+	// Or
+	// And
+	// Xor
+	// SLT
+	// SubI
+	// OrI
+	// AndI
+	// XorI
+	// SLTI
+	// Noop
+
 	// LUI  $R0, 0xFFFF
 	/*
 	0: Instruction=  32'b111001_00000_00000_1111111111111111;

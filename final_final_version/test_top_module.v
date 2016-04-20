@@ -38,7 +38,7 @@ module test_top_module;
 		.alu_output(alu_output)
 	);
 
-	always #10 clock = ~clock;
+	always #5 clock = ~clock;
 
 	initial begin
 		// Initialize Inputs

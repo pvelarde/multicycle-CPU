@@ -1,20 +1,53 @@
-Running: /mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_isim_beh.exe -prj /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_beh.prj work.IMem work.glbl 
+Running: /mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_isim_beh.exe" -prj "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_beh.prj" "work.test_top_module" "work.glbl" 
 ISim P.28xd (signature 0x54af6ca1)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../DFF.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../nbit_register_file.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../nbit_register.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../instruction_register.v" into library work
 Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../IMem.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../DMem.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../alu.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../finiteStateMachine.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" into library work
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 55: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 56: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 73: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../top_module.v" into library work
+Analyzing Verilog file "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../test_top_module.v" into library work
 Analyzing Verilog file "/mnt/support/software/linux/all/x86_64/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 55: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 56: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 73: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 63: Size mismatch in connection of port <nD>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 64: Size mismatch in connection of port <nD>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 69: Size mismatch in connection of port <Address>. Formal port size is 16-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 70: Size mismatch in connection of port <Write>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 83: Size mismatch in connection of port <Write>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../top_module.v" Line 35: Size mismatch in connection of port <op_function>. Formal port size is 6-bit while actual signal size is 32-bit.
 Completed static elaboration
-Fuse Memory Usage: 93876 KB
-Fuse CPU Usage: 890 ms
+Fuse Memory Usage: 94164 KB
+Fuse CPU Usage: 1080 ms
+Compiling module DFF
+Compiling module nbit_register(DATA_WIDTH=16)
 Compiling module IMem
+Compiling module instruction_register
+Compiling module nbit_register_default
+Compiling module nbit_register_file
+Compiling module DMem
+Compiling module alu
+Compiling module Datapath
+Compiling module finiteStateMachine
+Compiling module top_module
+Compiling module test_top_module
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 2 Verilog Units
-Built simulation executable /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_isim_beh.exe
-Fuse Memory Usage: 651988 KB
-Fuse CPU Usage: 900 ms
-GCC CPU Usage: 280 ms
+Compiled 13 Verilog Units
+Built simulation executable /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_isim_beh.exe
+Fuse Memory Usage: 652600 KB
+Fuse CPU Usage: 1120 ms
+GCC CPU Usage: 340 ms

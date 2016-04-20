@@ -1,10 +1,77 @@
 ISim log file
-Running: /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_isim_beh.wdb 
+Running: /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_isim_beh.wdb 
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
 ISim P.28xd (signature 0x54af6ca1)
 This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+ISim P.28xd (signature 0x54af6ca1)
+This is a Full version of ISim.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 63.  For instance datapath/reg_register_file_a/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_a.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 64.  For instance datapath/reg_register_file_b/, width 32 of formal port nD is not equal to width 1 of actual signal reg_file_out_b.
+WARNING: File "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/datapath.v" Line 27.  For instance datapath/data_memory/, width 16 of formal port Address is not equal to width 32 of actual signal alu_reg_out.
+WARNING:  For instance datapath/data_memory_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance datapath/reg_alu_out/, width 1 of formal port Write is not equal to width 32 of actual constant.
+WARNING:  For instance uut/control/, width 6 of formal port op_function is not equal to width 32 of actual constant.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
