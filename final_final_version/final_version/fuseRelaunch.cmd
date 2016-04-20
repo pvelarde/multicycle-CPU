@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_isim_beh.exe" -prj "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/IMem_beh.prj" "work.IMem" "work.glbl" 
