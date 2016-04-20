@@ -41,9 +41,9 @@ static unsigned int ng16[] = {3491823623U, 0U};
 static int ng17[] = {8, 0};
 static unsigned int ng18[] = {3558932482U, 0U};
 static int ng19[] = {9, 0};
-static unsigned int ng20[] = {2216755201U, 0U};
+static unsigned int ng20[] = {2216820737U, 0U};
 static int ng21[] = {10, 0};
-static unsigned int ng22[] = {67108866U, 0U};
+static unsigned int ng22[] = {67108864U, 0U};
 
 
 

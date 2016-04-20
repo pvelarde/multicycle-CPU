@@ -29,8 +29,8 @@ WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/fina
 WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../datapath.v" Line 83: Size mismatch in connection of port <Write>. Formal port size is 1-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "/ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/../top_module.v" Line 35: Size mismatch in connection of port <op_function>. Formal port size is 6-bit while actual signal size is 32-bit.
 Completed static elaboration
-Fuse Memory Usage: 94164 KB
-Fuse CPU Usage: 1080 ms
+Fuse Memory Usage: 94156 KB
+Fuse CPU Usage: 1070 ms
 Compiling module DFF
 Compiling module nbit_register(DATA_WIDTH=16)
 Compiling module IMem
@@ -48,6 +48,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 13 Verilog Units
 Built simulation executable /ad/eng/users/p/v/pvelarde/Desktop/final_project/final_final_version/final_version/test_top_module_isim_beh.exe
-Fuse Memory Usage: 652600 KB
+Fuse Memory Usage: 652592 KB
 Fuse CPU Usage: 1120 ms
-GCC CPU Usage: 340 ms
+GCC CPU Usage: 280 ms

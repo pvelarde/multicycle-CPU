@@ -81,9 +81,9 @@ case(PC)
 	// AndI sets it back to 2 WORKS
 	8: Instruction=  32'b110101_00001_00001_0000000000000010;
 		// Branch comparing $R1 and $R2 
-	9: Instruction=  32'b100001_00001_00001_0000000000000001;
+	9: Instruction=  32'b100001_00001_00010_0000000000000001;
 	// J to 0
-	10: Instruction=  32'b000001_00000_00000_0000000000000010;
+	10: Instruction=  32'b000001_00000_00000_0000000000000000;
 	
 	// Sub
 	// Or
